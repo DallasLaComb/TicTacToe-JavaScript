@@ -1,7 +1,8 @@
-var buttons = document.getElementsByClassName("button");
+let buttons = document.getElementsByClassName("button");
 let gameOver = false;
 let winner = document.getElementsByClassName("announcement");
 let restart = document.getElementsByClassName("restart");
+// Initializing objects from HTML to variables.
 
 var winConditions= [
     [0,1,2],
@@ -13,18 +14,13 @@ var winConditions= [
     [0,4,8],
     [2,4,6]
 ]
+//Win Conditions
 
 function initializeBoard(){
     for(let i=0;i<buttons.length;i++){
         buttons[i].innerHTML = '';
         buttons[i].style.backgroundColor = "rgba(255,255,255,.9)";
     }
-
-    playerTurn();
-    restartGame();
-   winner[0].innerHTML = "Game in progress";
-    gameOver=false;
-  
 }
 
 
@@ -46,12 +42,9 @@ function checkWin(){
 
 
 function restartGame(){
-   
     restart[0].addEventListener("click",function(){
-        initializeBoard() 
+        window.location.reload(true);
     })
-   
-    
 }
 
 
@@ -84,7 +77,8 @@ function playerTurn(){
 
 
 initializeBoard();
-
+playerTurn();
+restartGame()
 
 
 
